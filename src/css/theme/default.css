@@ -1,0 +1,69 @@
+.dropdown-container {
+    display: block !important;
+    width: 100% !important;
+}
+
+.dropdown-label {
+    position: absolute !important;
+    display: block !important;
+    border: 0px !important;
+    margin: -1px !important;
+    padding: 0px !important;
+    height: 1px !important;
+    width: 1px !important;
+    clip: rect(0, 0, 0, 0) !important;
+    overflow: hidden !important;
+}
+
+.dropdown-inner-container {
+    font-size: 16px !important;
+    line-height: 22px !important;
+    letter-spacing: normal !important;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+    /* text-transform: undefined !important; */
+    color: #484848 !important;
+    /* padding-top: undefined !important; */
+    /* padding-bottom: undefined !important; */
+    position: relative !important;
+    background: #ffffff !important;
+    border: 1px solid #EBEBEB !important;
+    border-radius: 2px !important;
+    margin-bottom: 8px !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+.dropdown-card {
+    overflow: hidden !important;
+}
+
+.dropdown-select {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    font-size: 16px !important;
+    line-height: 22px !important;
+    letter-spacing: normal !important;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+    /* text-transform: undefined !important; */
+    color: #484848 !important;
+    padding-top: 11px !important;
+    padding-bottom: 11px !important;
+    font-weight: normal !important;
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0px !important;
+    padding-left: 11px !important;
+    padding-right: 40px !important;
+    height: 44px !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+.dropdown-icon {
+    position: absolute !important;
+    top: 16px !important;
+    right: 16px !important;
+    line-height: 0 !important;
+    pointer-events: none !important;
+}
