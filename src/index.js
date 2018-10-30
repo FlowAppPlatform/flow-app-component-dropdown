@@ -5,18 +5,6 @@ import AppComponent from 'flow-app-component';
 import './css/theme/default.css';
 
 class DropdownComponent extends AppComponent {
-  static properties = {
-    iconUrl: '/assets/images/dropdown-component.png',
-    name: 'Dropdown',
-    type: 'ui-component',
-    componentType: 'dropdown',
-    category: 'Inputs',
-    parent: null,
-    showOnComponentsPanel: true,
-    isValuable: true,
-    allowsChildren: false
-  };
-
   constructor() {
     super();
     const newState = {
@@ -40,8 +28,15 @@ class DropdownComponent extends AppComponent {
           ],
         },
       ],
-
-      ...DropdownComponent.properties
+      iconUrl: '/assets/images/dropdown-component.png',
+      name: 'Dropdown',
+      type: 'ui-component',
+      componentType: 'dropdown',
+      category: 'Inputs',
+      parent: null,
+      showOnComponentsPanel: true,
+      isValuable: true,
+      allowsChildren: false,
     };
 
     this.state = Object.assign(this.state, newState); // merge two states together, and dont lose any parent state properties.
