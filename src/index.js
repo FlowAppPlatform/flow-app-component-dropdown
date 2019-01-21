@@ -8,7 +8,10 @@ class DropdownComponent extends AppComponent {
   constructor() {
     super();
     const newState = {
-      properties: [
+        interactiveMode: false,
+        readOnly: false,
+        dropDownContent: [],
+        properties: [
         {
           categoryName: 'General',
           categoryDescription: 'Basic settings for the dropdown',
@@ -41,13 +44,18 @@ class DropdownComponent extends AppComponent {
 
     this.state = Object.assign(this.state, newState); // merge two states together, and dont lose any parent state properties.
   }
+    componentDidMount(){
+        const dropDownContent = this.getPropertyData('dropdown') || [
+            'Random',
+            'Dropdown',
+            'Data',
+        ];
+        const interactiveMode = !(this.props.propertyData.interactiveMode === undefined);
+        this.setState({ dropDownContent, readOnly: interactiveMode });
+    }
 
   renderContent() {
-    const dropdownContent = this.getPropertyData('dropdown') || [
-      'Random',
-      'Dropdown',
-      'Data',
-    ];
+    const  { dropDownContent, readOnly } = this.state;
     return (
       <div className="dropdown-container">
         <label className="dropdown-label" htmlFor="dropdown">
@@ -55,8 +63,13 @@ class DropdownComponent extends AppComponent {
         </label>
         <div className="dropdown-inner-container">
           <div className="dropdown-card">
-            <select id="dropdown" name="dropdown" className="dropdown-select">
-              {dropdownContent.map((datum, id) => (
+            <select
+                id="dropdown"
+                name="dropdownValue"
+                className="dropdown-select"
+                disabled={readOnly}
+            >
+              {dropDownContent.map((datum, id) => (
                 <option key={id} value={datum}>
                   {datum}
                 </option>
