@@ -44,25 +44,35 @@ class DropdownComponent extends AppComponent {
 
     this.state = Object.assign(this.state, newState); // merge two states together, and dont lose any parent state properties.
   }
-    componentDidMount(){
-        const dropDownContent = this.getPropertyData('dropdown') || [
-            'Random',
-            'Dropdown',
-            'Data',
-        ];
-        const interactiveMode = !(this.props.propertyData.interactiveMode === undefined);
-        this.setState({ dropDownContent, readOnly: interactiveMode });
-    }
+  
+  componentDidMount(){
+    const dropDownContent = this.getPropertyData('dropdown') || [
+        'Random',
+        'Dropdown',
+        'Data',
+    ];
+    const interactiveMode = !(this.props.propertyData.interactiveMode === undefined);
+    this.setState({ dropDownContent, readOnly: interactiveMode });
+  }
+
+  triggerGraphEvent = () => {
+    const graphId = this.getPropertyData('event');
+    this.getElementProps().onEvent(graphId)
+  }
 
   renderContent() {
     const  { dropDownContent, readOnly } = this.state;
     return (
-      <div className="dropdown-container">
+      <div
+        className="dropdown-container">
         <label className="dropdown-label" htmlFor="dropdown">
           Dropdown
         </label>
         <div className="dropdown-inner-container">
-          <div className="dropdown-card">
+          <div 
+            className="dropdown-card"
+            onMouseOver={this.triggerGraphEvent}
+          >
             <select
                 id="dropdown"
                 name="dropdownValue"
