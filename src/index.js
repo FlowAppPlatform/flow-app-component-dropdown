@@ -22,8 +22,15 @@ class DropdownComponent extends AppComponent {
           categoryDescription: 'Events for the dropdown',
           properties: [
             {
-              id: 'event',
-              name: 'Events',
+              id: 'load',
+              name: 'Load Event',
+              type: 'graph',
+              options: {},
+              data: null,
+            },
+            {
+              id: 'hover',
+              name: 'Hover Event',
               type: 'graph',
               options: {},
               data: null,
@@ -53,10 +60,11 @@ class DropdownComponent extends AppComponent {
     ];
     const interactiveMode = !(this.props.propertyData.interactiveMode === undefined);
     this.setState({ dropDownContent, readOnly: interactiveMode });
+    this.triggerGraphEvent('load')
   }
 
-  triggerGraphEvent = () => {
-    const graphId = this.getPropertyData('event');
+  triggerGraphEvent = (eventId) => {
+    const graphId = this.getPropertyData(eventId);
     this.getElementProps().onEvent(graphId)
   }
 
@@ -71,7 +79,7 @@ class DropdownComponent extends AppComponent {
         <div className="dropdown-inner-container">
           <div 
             className="dropdown-card"
-            onMouseOver={this.triggerGraphEvent}
+            onMouseOver={() => this.triggerGraphEvent('hover')}
           >
             <select
                 id="dropdown"
