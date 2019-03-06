@@ -66,7 +66,11 @@ class DropdownComponent extends AppComponent {
   triggerGraphEvent = (eventId) => {
     const graphId = this.getPropertyData(eventId);
     if (typeof this.getElementProps().onEvent === 'function') {
+<<<<<<< HEAD
       this.getElementProps.onEvent(graphId);
+=======
+      this.getElementProps().onEvent(graphId)
+>>>>>>> 36c1db2e4dc65826eaed82eb1c91a44d9a6933b8
     }
   }
 
