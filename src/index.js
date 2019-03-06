@@ -67,7 +67,7 @@ class DropdownComponent extends AppComponent {
     const graphId = this.getPropertyData(eventId);
     if (typeof this.getElementProps().onEvent === 'function') {
       this.getElementProps().onEvent(graphId)
-    }ß
+    }
   }
 
   renderContent() {
